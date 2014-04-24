@@ -1711,15 +1711,15 @@ class Carbon extends DateTime
 
       // 4 weeks per month, 365 days per year... good enough!!
       $divs = array(
-         'second' => self::SECONDS_PER_MINUTE,
-         'minute' => self::MINUTES_PER_HOUR,
-         'hour'   => self::HOURS_PER_DAY,
-         'day'    => self::DAYS_PER_WEEK,
-         'week'   => 4,
-         'month'  => self::MONTHS_PER_YEAR
+         '秒' => self::SECONDS_PER_MINUTE,
+         '分' => self::MINUTES_PER_HOUR,
+         '小时'   => self::HOURS_PER_DAY,
+         '天'    => self::DAYS_PER_WEEK,
+         '周'   => 4,
+         '月'  => self::MONTHS_PER_YEAR
       );
 
-      $unit = 'year';
+      $unit = '年';
 
       foreach ($divs as $divUnit => $divValue) {
          if ($delta < $divValue) {
@@ -1735,21 +1735,21 @@ class Carbon extends DateTime
       }
 
       $txt = $delta . ' ' . $unit;
-      $txt .= $delta == 1 ? '' : 's';
+      $txt .= $delta == 1 ? '' : '';
 
       if ($isNow) {
          if ($isFuture) {
-            return $txt . ' from now';
+            return $txt . ' 之后';
          }
 
-         return $txt . ' ago';
+         return $txt . ' 之前';
       }
 
       if ($isFuture) {
-         return $txt . ' after';
+         return $txt . ' 之后';
       }
 
-      return $txt . ' before';
+      return $txt . ' 之前';
    }
 
    ///////////////////////////////////////////////////////////////////
